@@ -338,9 +338,9 @@ public class CloneWorkspaceSCM extends SCM {
         public List<String> getEligibleParents() {
             List<String> parentNames = new ArrayList<String>();
             
-            for (AbstractProject p : Hudson.getInstance().getItems(AbstractProject.class)) {
+            for (AbstractProject p : Hudson.getInstance().getAllItems(AbstractProject.class)) {
                 if (p.getPublishersList().get(CloneWorkspacePublisher.class) != null) {
-                    parentNames.add(p.getDisplayName());
+                    parentNames.add(p.getFullName());
                 }
             }
             
